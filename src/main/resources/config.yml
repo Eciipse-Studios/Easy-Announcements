@@ -1,0 +1,150 @@
+# Easy Announcements - Config
+# Plugin by Sketch494 | Eciipse Studios™
+# 
+# ⚠️ WARNING: If you don't know what this does, don't touch it!
+#
+
+# ===== GENERAL SETTINGS =====
+general:
+  # Send to all players by default when no player is specified
+  # When true: /announcement <text> sends to everyone
+  # When false: /announcement <text> requires a player name
+  default-to-all: true
+
+# ===== TITLE ANNOUNCEMENT =====
+title:
+  # Enable title announcements
+  enabled: true
+  
+  # Title displayed at the top of the announcement
+  # Use & for color codes (e.g., &6 for gold, &l for bold)
+  title: "&6&lAnnouncement"
+  
+  # Subtitle displayed below the title
+  # %message% will be replaced with the announcement message
+  # Supports PlaceholderAPI placeholders
+  subtitle: "&7%message%"
+  
+  # How long the title stays on screen (in seconds)
+  # fade-in + stay + fade-out
+  display-time:
+    fade-in: 1    # Time for title to fade in (seconds)
+    stay: 5       # Time for title to stay on screen (seconds)
+    fade-out: 1   # Time for title to fade out (seconds)
+
+# ===== CHAT ANNOUNCEMENT =====
+chat:
+  # Enable chat message announcements
+  enabled: true
+  
+  # Chat message format
+  # %message% will be replaced with the announcement message
+  # %player% will be replaced with sender name (or "Server" if console)
+  # %world% will be replaced with target world name (if per-world is enabled)
+  # Supports PlaceholderAPI placeholders
+  format:
+    # Header (top border)
+    header: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    
+    # Blank line for spacing
+    spacing-top: ""
+    
+    # Title line
+    title: "&6&l✦ ANNOUNCEMENT ✦"
+    
+    # Blank line for spacing
+    spacing-middle: ""
+    
+    # Message line(s)
+    message: "&f%message%"
+    
+    # Blank line for spacing
+    spacing-bottom: ""
+    
+    # Sender line (set to "" to disable)
+    sender: "&7Sent by: &e%player%"
+    
+    # Footer (bottom border)
+    footer: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+# ===== BOSS BAR ANNOUNCEMENT =====
+bossbar:
+  # Enable boss bar announcements (animated progress bar at top of screen)
+  enabled: false
+  
+  # Boss bar message format
+  # %message% will be replaced with the announcement message
+  message: "&6&l✦ &f%message% &6&l✦"
+  
+  # Boss bar color
+  # Options: PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE
+  color: "YELLOW"
+  
+  # Boss bar style
+  # Options: SOLID, SEGMENTED_6, SEGMENTED_10, SEGMENTED_12, SEGMENTED_20
+  style: "SOLID"
+  
+  # Animation settings
+  animation:
+    # Enable animated progress bar
+    enabled: true
+    
+    # Animation type
+    # Options: FILL (bar fills up), DRAIN (bar drains down), PULSE (bar pulses)
+    type: "FILL"
+    
+    # Duration in seconds (how long boss bar stays visible)
+    duration: 5
+    
+    # Update interval in ticks (20 ticks = 1 second)
+    # Lower = smoother animation, higher = less resource intensive
+    update-interval: 2
+
+# ===== SOUND SETTINGS =====
+sound:
+  # Enable sound when announcement is sent
+  enabled: true
+  
+  # Sound type (Bukkit sound name)
+  # Popular options:
+  #   ENTITY_EXPERIENCE_ORB_PICKUP (XP sound)
+  #   ENTITY_PLAYER_LEVELUP (Level up sound)
+  #   BLOCK_NOTE_BLOCK_PLING (Note block pling)
+  #   ENTITY_ARROW_HIT_PLAYER (Arrow hit)
+  #   BLOCK_ANVIL_LAND (Anvil land)
+  #   UI_TOAST_CHALLENGE_COMPLETE (Achievement sound)
+  type: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  
+  # Volume (0.0 to 1.0)
+  volume: 1.0
+  
+  # Pitch (0.5 to 2.0, 1.0 is normal)
+  pitch: 1.0
+
+# ===== PER-WORLD SETTINGS =====
+per-world:
+  # Enable per-world announcements
+  # When enabled, you can specify world in command: /announcement <world> <message>
+  # or use @w to prompt for world selection
+  enabled: false
+  
+  # World selection mode
+  # Options:
+  #   "all" - Default sends to all worlds
+  #   "prompt" - Prompts to select world
+  #   "sender" - Defaults to sender's current world
+  mode: "all"
+  
+  # Allowed worlds (leave empty to allow all worlds)
+  # List world names that can receive announcements
+  allowed-worlds:
+    - "world"
+    - "world_nether"
+    - "world_the_end"
+  
+  # Show world name in announcements
+  show-world-name: true
+  
+  # World name format (shown in chat/title if enabled)
+  world-name-format: "&7[%world%]"
+

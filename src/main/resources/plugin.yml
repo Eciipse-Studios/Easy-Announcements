@@ -1,0 +1,49 @@
+name: EasyAnnouncements
+version: ${version}
+main: com.eclipsestudios.announcements.EclipseStudiosAnnouncements
+description: Easy announcement system with Discord integration. Plugin by Sketch494. Eciipse Studios™
+author: Sketch494
+api-version: '1.21'
+load: STARTUP
+softdepend: [PlaceholderAPI, DiscordSRV]
+
+permissions:
+  esa.*:
+    description: All Eciipse Studios Announcements permissions
+    default: op
+    children:
+      esa.announcement: true
+      esa.announce: true
+      esa.reload: true
+  esa.announcement:
+    description: Send announcements to players
+    default: op
+  esa.announce:
+    description: Alias for announcement command
+    default: op
+  esa.reload:
+    description: Reload plugin configuration
+    default: op
+
+commands:
+  announcement:
+    description: Send announcement to players or all players (@a)
+    permission: esa.announcement
+    permission-message: "§cYou don't have permission to use this command."
+    usage: /<command> [@a|player] <message>
+    aliases: [announce, ea]
+  announce:
+    description: Alias for announcement command
+    permission: esa.announce
+    permission-message: "§cYou don't have permission to use this command."
+    usage: /<command> [@a|player] <message>
+  ea:
+    description: Quick alias for announcement command
+    permission: esa.announce
+    permission-message: "§cYou don't have permission to use this command."
+    usage: /<command> [@a|player] <message>
+  esareload:
+    description: Reload plugin configuration
+    permission: esa.reload
+    permission-message: "§cYou don't have permission to use this command."
+    usage: /<command>

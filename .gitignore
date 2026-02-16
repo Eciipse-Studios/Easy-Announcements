@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Eclipse
+bin/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local / secrets (if you add any later)
+*.local
+.env
+.env.*

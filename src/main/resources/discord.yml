@@ -1,0 +1,166 @@
+# Discord Configuration - Easy Announcements
+# Plugin by Sketch494 | Eciipse Studios™
+# 
+# ⚠️ WARNING: If you don't know what this does, don't touch it!
+#
+
+# ===== DISCORD INTEGRATION =====
+discord:
+  # Enable Discord integration (requires DiscordSRV plugin)
+  enabled: true
+  
+  # Discord channel ID where announcements will be sent
+  # To get channel ID: Right-click channel in Discord -> Copy ID (requires Developer Mode)
+  channel-id: "YOUR_CHANNEL_ID_HERE"
+
+# ===== EMBED CUSTOMIZATION =====
+embed:
+  # Enable embed announcements
+  enabled: true
+  
+  # Embed color in HEX format (without #)
+  # Examples: FFD700 (Gold), FF0000 (Red), 00FF00 (Green), 0000FF (Blue)
+  color: "FFD700"
+  
+  # Embed title
+  title: "📢 Server Announcement"
+  
+  # Embed description (use %message% for the announcement text)
+  description: "%message%"
+  
+  # Timestamp (show current time)
+  show-timestamp: true
+  
+  # ===== AUTHOR SECTION =====
+  author:
+    # Show author section (sender info at top of embed)
+    enabled: true
+    
+    # Show player name who sent the announcement
+    show-player-name: true
+    
+    # Author text format (%player% will be replaced with player name)
+    # If sent by console, will show "Server Console"
+    format: "Sent by %player%"
+    
+    # Author icon (player head URL, leave empty for default Minecraft head)
+    # %player% will be replaced with player name
+    # Default uses Minotar for player heads
+    icon-url: "https://minotar.net/avatar/%player%/64.png"
+  
+  # ===== THUMBNAIL IMAGE =====
+  thumbnail:
+    # Enable thumbnail (small image in top right corner)
+    enabled: false
+    
+    # Thumbnail URL (direct link to image)
+    url: "https://example.com/your-logo.png"
+  
+  # ===== MAIN IMAGE =====
+  image:
+    # Enable large image (displays below description)
+    enabled: false
+    
+    # Image URL (direct link to image)
+    url: "https://example.com/your-banner.png"
+  
+  # ===== FOOTER SECTION =====
+  footer:
+    # Enable footer
+    enabled: true
+    
+    # Footer text
+    text: "Eciipse Studios™"
+    
+    # Footer icon URL (small icon next to footer text)
+    icon-url: ""
+    
+    # Show player count in footer
+    show-player-count: true
+    
+    # Player count format (use %count% for number of players announcement was sent to)
+    player-count-format: "Sent to %count% player(s)"
+  
+  # ===== CUSTOM FIELDS =====
+  # Add additional fields to the embed (like an embed builder!)
+  # Each field can have a name, value, and inline setting
+  fields:
+    # Example field 1 (remove or set enabled: false to disable)
+    1:
+      enabled: false
+      name: "📌 Important"
+      value: "This is an important announcement!"
+      inline: false
+    
+    # Example field 2
+    2:
+      enabled: false
+      name: "Server IP"
+      value: "play.example.com"
+      inline: true
+    
+    # Example field 3
+    3:
+      enabled: false
+      name: "Version"
+      value: "1.21"
+      inline: true
+    
+    # Add more fields by copying the structure above with numbers 4, 5, etc.
+
+# ===== DISCORD COMMANDS =====
+# Allow sending announcements from Discord using slash commands or prefix commands
+discord-commands:
+  # Enable Discord slash commands (/announce)
+  slash-commands:
+    enabled: true
+    
+    # Command name (will be /announce in Discord)
+    command-name: "announce"
+    
+    # Command description
+    command-description: "Send an announcement to Minecraft server"
+  
+  # Enable Discord prefix commands (!announce, ?announce, etc.)
+  prefix-commands:
+    enabled: true
+    
+    # Command prefix (e.g., "!", "?", ".")
+    # You can set this to any prefix you want
+    prefix: "!"
+    
+    # Command name (will be !announce in Discord if prefix is "!")
+    command-name: "announce"
+    
+    # Allow command to work in DMs (not recommended for security)
+    allow-in-dms: false
+  
+  # ===== PERMISSIONS =====
+  permissions:
+    # Admin mode - if true, uses role/user IDs below for permissions
+    # if false, anyone can use the command in Discord
+    admin-only: true
+    
+    # Discord role IDs that can use the command (comma-separated)
+    # To get role ID: Right-click role in Discord -> Copy ID (requires Developer Mode)
+    # Leave empty to allow all roles
+    allowed-role-ids:
+      - "YOUR_ADMIN_ROLE_ID_HERE"
+      - "YOUR_MOD_ROLE_ID_HERE"
+    
+    # Discord user IDs that can use the command (comma-separated)
+    # To get user ID: Right-click user in Discord -> Copy ID (requires Developer Mode)
+    # Leave empty to allow all users
+    allowed-user-ids:
+      - "YOUR_USER_ID_HERE"
+  
+  # ===== COMMAND OPTIONS =====
+  options:
+    # Allow selecting target (all players or specific world) from Discord
+    enable-world-selection: true
+    
+    # Show confirmation message in Discord after sending
+    show-confirmation: true
+    
+    # Confirmation message format
+    confirmation-format: "✅ Announcement sent to **%target%**: %message%"
